@@ -28,7 +28,7 @@ $ npm i scandir-native
 ## Usage
 
 ```js
-const scandir = require('scandir');
+const scandir = require('scandir-native');
 
 scandir.scandir('.', (err, entries) => {
 	if (err) {
@@ -84,7 +84,7 @@ Synchronous [`scandir(3)`](http://man7.org/linux/man-pages/man3/scandir.3.html).
 ## Example
 
 ```ts
-const scandir = require('scandir');
+const scandir = require('scandir-native');
 
 const dirs: string[] = [];
 const nonDirs: string[] = [];
