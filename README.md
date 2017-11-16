@@ -16,6 +16,8 @@ If you want to thank me, or promote your Issue.
 $ npm i scandir-native
 ```
 
+:warning: Compiling on Windows machines requires the [node-gyp prerequisites](https://github.com/nodejs/node-gyp#on-windows).
+
 ## Supports
 
   * Node.js (4, 6, 8 and etc.)
