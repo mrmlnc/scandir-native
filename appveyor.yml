@@ -1,11 +1,28 @@
 build: off
 
+notifications:
+  - provider: Email
+    on_build_success: false
+    on_build_failure: false
+    on_build_status_changed: false
+
+cache:
+  - node_modules
+
+branches:
+  only:
+    - master
+
+platform:
+  - x64
+
 environment:
   NVS_VERSION: 1.4.2
   matrix:
     - NODEJS_VERSION: node/4
     - NODEJS_VERSION: node/6
     - NODEJS_VERSION: node/8
+    - NODEJS_VERSION: node/10
     - NODEJS_VERSION: nightly
     - NODEJS_VERSION: rc
     - NODEJS_VERSION: canary
@@ -18,12 +35,6 @@ matrix:
     - NODEJS_VERSION: canary
     - NODEJS_VERSION: chakracore
     - NODEJS_VERSION: chakracore-nightly
-
-platform:
-  - x64
-
-cache:
-  - node_modules
 
 install:
   - git clone --branch v%NVS_VERSION% --depth 1 https://github.com/jasongin/nvs %LOCALAPPDATA%\nvs
