@@ -40,7 +40,7 @@ describe('ScandirAddon', () => {
 			scandir.scandir('./non-exists', (err) => {
 				if (err) {
 					assert.equal(err.message, 'ENOENT: no such file or directory, scandir');
-					done();
+					return done();
 				}
 
 				assert.fail('Error is not handled!');
@@ -51,7 +51,7 @@ describe('ScandirAddon', () => {
 			scandir.scandir('./.clang-format', (err) => {
 				if (err) {
 					assert.equal(err.message, 'ENOTDIR: not a directory, scandir');
-					done();
+					return done();
 				}
 
 				assert.fail('Error is not handled!');
