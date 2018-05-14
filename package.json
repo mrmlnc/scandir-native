@@ -1,6 +1,6 @@
 {
   "name": "scandir-native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A fs.scandir method with some features",
   "license": "MIT",
   "repository": "mrmlnc/scandir-native",
