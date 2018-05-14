@@ -49,7 +49,8 @@ public:
 
 		Local<Value> argv[] = { Nan::Null(), entries };
 
-		callback->Call(2, argv);
+		Nan::AsyncResource resource("scandir-native:addon.async");
+		callback->Call(2, argv, &resource);
 	}
 
 	void
@@ -62,7 +63,8 @@ public:
 			Nan::Null()
 		};
 
-		callback->Call(1, argv);
+		Nan::AsyncResource resource("scandir-native:addon.async");
+		callback->Call(1, argv, &resource);
 	}
 
 private:
