@@ -20,7 +20,7 @@ NAN_METHOD(scandir)
 		return Nan::ThrowTypeError("path must be a string");
 	}
 	Local<String> nan_directory = info[0].As<String>();
-	std::string directory = std::string(*String::Utf8Value(nan_directory));
+	std::string directory = std::string(*Nan::Utf8String(nan_directory));
 
 	std::vector<Scandir::DirEntry> dir_entries;
 	int status = Scandir::scandir(directory, dir_entries);
