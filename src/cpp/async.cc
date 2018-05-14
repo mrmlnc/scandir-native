@@ -49,7 +49,8 @@ public:
 
 		Local<Value> argv[] = { Nan::Null(), entries };
 
-		callback->Call(2, argv);
+		Nan::AsyncResource resource("scandir-native:addon.async");
+		callback->Call(2, argv, &resource);
 	}
 
 	void
@@ -62,7 +63,8 @@ public:
 			Nan::Null()
 		};
 
-		callback->Call(1, argv);
+		Nan::AsyncResource resource("scandir-native:addon.async");
+		callback->Call(1, argv, &resource);
 	}
 
 private:
@@ -78,7 +80,7 @@ NAN_METHOD(scandir)
 		return Nan::ThrowTypeError("path must be a string");
 	}
 	Local<String> nan_directory = info[0].As<String>();
-	std::string directory = std::string(*String::Utf8Value(nan_directory));
+	std::string directory = std::string(*Nan::Utf8String(nan_directory));
 
 	if (!info[1]->IsFunction()) {
 		return Nan::ThrowTypeError("'callback' argument must be a function");
