@@ -26,7 +26,7 @@
     "mocha": "^5.1.1",
     "rimraf": "^2.6.2",
     "tslint": "^5.10.0",
-    "tslint-config-xo": "^1.4.0",
+    "tslint-config-xo": "^2.0.0",
     "typescript": "^2.8.3"
   },
   "dependencies": {
